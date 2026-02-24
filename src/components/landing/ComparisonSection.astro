@@ -1,78 +1,78 @@
-<section id="comparison" class="section-band bg-[#020617]" aria-labelledby="comparison-title">
+<section id="comparison" class="section-band light-section" aria-labelledby="comparison-title">
   <div class="section-inner">
-    <h2 id="comparison-title" class="m-0 text-2xl font-semibold text-slate-50 md:text-3xl">Ace vs Grafana comparison for self-hosted monitoring teams</h2>
-    <p class="mt-4 max-w-3xl text-slate-300">
-      Use this table to compare Ace and Grafana for self-hosted teams evaluating open-source monitoring tools.
+    <h2 id="comparison-title" class="m-0 text-2xl font-semibold md:text-3xl">Ace vs Grafana</h2>
+    <p class="mt-4 max-w-3xl text-slate-600">
+      Compare Ace and Grafana for self-hosted teams evaluating open-source monitoring tools.
     </p>
 
-    <div class="mt-5 overflow-x-auto rounded-xl border border-slate-700/50 bg-[#0a1628]">
-      <table class="min-w-[760px] w-full border-collapse text-left text-sm text-slate-200">
+    <div class="mt-6 overflow-x-auto rounded-xl border border-slate-200 bg-white">
+      <table class="min-w-[760px] w-full border-collapse text-left text-sm">
         <caption class="px-4 pt-4 pb-2 text-left text-xs text-slate-400">
           Feature comparison across dashboards, access control, and migration.
         </caption>
         <thead>
-          <tr class="border-b border-slate-700/70 font-mono text-xs uppercase tracking-[0.07em] text-slate-400">
+          <tr class="bg-slate-900 font-mono text-xs uppercase tracking-[0.07em] text-slate-300">
             <th scope="col" class="px-4 py-3">Feature</th>
             <th scope="col" class="px-4 py-3">Ace</th>
             <th scope="col" class="px-4 py-3">Grafana</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="border-b border-slate-700/50 align-top">
-            <th scope="row" class="w-[28%] px-4 py-3 text-slate-50">Deployment model</th>
-            <td class="bg-amber-500/10 px-4 py-3 text-slate-100">Self-hosted first with straightforward local setup</td>
-            <td class="px-4 py-3 text-slate-300">Cloud and self-hosted options with a wider set of products and plans</td>
+          <tr class="border-b border-slate-100 align-top bg-emerald-50">
+            <th scope="row" class="w-[28%] px-4 py-3 font-semibold text-slate-900">Deployment model</th>
+            <td class="px-4 py-3 text-slate-700">Self-hosted first with straightforward local setup</td>
+            <td class="px-4 py-3 text-slate-500">Cloud and self-hosted options with a wider set of products and plans</td>
           </tr>
-          <tr class="border-b border-slate-700/50 align-top">
-            <th scope="row" class="px-4 py-3 text-slate-50">Source model</th>
-            <td class="bg-amber-500/10 px-4 py-3 text-slate-100">Truly open-source codebase with no paid-only features</td>
-            <td class="px-4 py-3 text-slate-300">Open-source core with enterprise and cloud offerings</td>
+          <tr class="border-b border-slate-100 align-top bg-emerald-50">
+            <th scope="row" class="px-4 py-3 font-semibold text-slate-900">Source model</th>
+            <td class="px-4 py-3 text-slate-700">Truly open-source codebase with no paid-only features</td>
+            <td class="px-4 py-3 text-slate-500">Open-source core with enterprise and cloud offerings</td>
           </tr>
-          <tr class="border-b border-slate-700/50 align-top">
-            <th scope="row" class="px-4 py-3 text-slate-50">Prometheus metrics</th>
-            <td class="px-4 py-3 text-slate-300">Native support for Prometheus-compatible metrics queries</td>
-            <td class="px-4 py-3 text-slate-300">Native support for Prometheus-compatible metrics queries</td>
+          <tr class="border-b border-slate-100 align-top">
+            <th scope="row" class="px-4 py-3 font-semibold text-slate-900">Prometheus metrics</th>
+            <td class="px-4 py-3 text-slate-500">Native support for Prometheus-compatible metrics queries</td>
+            <td class="px-4 py-3 text-slate-500">Native support for Prometheus-compatible metrics queries</td>
           </tr>
-          <tr class="border-b border-slate-700/50 align-top">
-            <th scope="row" class="px-4 py-3 text-slate-50">Loki logs</th>
-            <td class="px-4 py-3 text-slate-300">Integrated Explore flow for logs and related telemetry</td>
-            <td class="px-4 py-3 text-slate-300">Integrated Explore flow for logs and related telemetry</td>
+          <tr class="border-b border-slate-100 align-top">
+            <th scope="row" class="px-4 py-3 font-semibold text-slate-900">Loki logs</th>
+            <td class="px-4 py-3 text-slate-500">Integrated Explore flow for logs and related telemetry</td>
+            <td class="px-4 py-3 text-slate-500">Integrated Explore flow for logs and related telemetry</td>
           </tr>
-          <tr class="border-b border-slate-700/50 align-top">
-            <th scope="row" class="px-4 py-3 text-slate-50">Tempo traces</th>
-            <td class="px-4 py-3 text-slate-300">Trace search and timeline views in the same interface</td>
-            <td class="px-4 py-3 text-slate-300">Trace support through Tempo integrations and trace views</td>
+          <tr class="border-b border-slate-100 align-top">
+            <th scope="row" class="px-4 py-3 font-semibold text-slate-900">Tempo traces</th>
+            <td class="px-4 py-3 text-slate-500">Trace search and timeline views in the same interface</td>
+            <td class="px-4 py-3 text-slate-500">Trace support through Tempo integrations and trace views</td>
           </tr>
-          <tr class="border-b border-slate-700/50 align-top">
-            <th scope="row" class="px-4 py-3 text-slate-50">Dashboard migration</th>
-            <td class="bg-amber-500/10 px-4 py-3 text-slate-100">Built-in Grafana conversion flow and YAML import path</td>
-            <td class="px-4 py-3 text-slate-300">Native format for existing Grafana JSON dashboards</td>
+          <tr class="border-b border-slate-100 align-top bg-emerald-50">
+            <th scope="row" class="px-4 py-3 font-semibold text-slate-900">Dashboard migration</th>
+            <td class="px-4 py-3 text-slate-700">Built-in Grafana conversion flow and YAML import path</td>
+            <td class="px-4 py-3 text-slate-500">Native format for existing Grafana JSON dashboards</td>
           </tr>
-          <tr class="border-b border-slate-700/50 align-top">
-            <th scope="row" class="px-4 py-3 text-slate-50">Configuration as code</th>
-            <td class="bg-amber-500/10 px-4 py-3 text-slate-100">YAML export and import for easy review and repeatable setup</td>
-            <td class="px-4 py-3 text-slate-300">JSON export commonly used for dashboard portability</td>
+          <tr class="border-b border-slate-100 align-top bg-emerald-50">
+            <th scope="row" class="px-4 py-3 font-semibold text-slate-900">Configuration as code</th>
+            <td class="px-4 py-3 text-slate-700">YAML export and import for easy review and repeatable setup</td>
+            <td class="px-4 py-3 text-slate-500">JSON export commonly used for dashboard portability</td>
           </tr>
-          <tr class="border-b border-slate-700/50 align-top">
-            <th scope="row" class="px-4 py-3 text-slate-50">Organization access control</th>
-            <td class="bg-amber-500/10 px-4 py-3 text-slate-100">Admin, editor, and viewer roles are simple to apply</td>
-            <td class="px-4 py-3 text-slate-300">Role behavior varies by deployment and edition</td>
+          <tr class="border-b border-slate-100 align-top bg-emerald-50">
+            <th scope="row" class="px-4 py-3 font-semibold text-slate-900">Organization access control</th>
+            <td class="px-4 py-3 text-slate-700">Admin, editor, and viewer roles are simple to apply</td>
+            <td class="px-4 py-3 text-slate-500">Role behavior varies by deployment and edition</td>
           </tr>
-          <tr class="border-b border-slate-700/50 align-top">
-            <th scope="row" class="px-4 py-3 text-slate-50">SSO administration</th>
-            <td class="bg-amber-500/10 px-4 py-3 text-slate-100">Provider setup available in organization settings</td>
-            <td class="px-4 py-3 text-slate-300">Provider setup depends on deployment mode and edition features</td>
+          <tr class="border-b border-slate-100 align-top bg-emerald-50">
+            <th scope="row" class="px-4 py-3 font-semibold text-slate-900">SSO administration</th>
+            <td class="px-4 py-3 text-slate-700">Provider setup available in organization settings</td>
+            <td class="px-4 py-3 text-slate-500">Provider setup depends on deployment mode and edition features</td>
           </tr>
-          <tr class="align-top">
-            <th scope="row" class="px-4 py-3 text-slate-50">Operational scope</th>
-            <td class="bg-amber-500/10 px-4 py-3 text-slate-100">Focused product centered on monitoring and incident debugging</td>
-            <td class="px-4 py-3 text-slate-300">Broad ecosystem with many plugins and product extensions</td>
+          <tr class="align-top bg-emerald-50">
+            <th scope="row" class="px-4 py-3 font-semibold text-slate-900">Operational scope</th>
+            <td class="px-4 py-3 text-slate-700">Focused product centered on monitoring and incident debugging</td>
+            <td class="px-4 py-3 text-slate-500">Broad ecosystem with many plugins and product extensions</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <p class="mt-4 max-w-4xl text-sm text-slate-300">
+    <p class="mt-4 max-w-4xl text-sm text-slate-500">
       Ace is a strong fit for teams that want truly open-source, self-hosted monitoring with metrics, logs,
       traces, and access control in one product. Grafana remains a mature option with a larger plugin ecosystem.
     </p>
