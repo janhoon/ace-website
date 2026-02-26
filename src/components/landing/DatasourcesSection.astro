@@ -1,0 +1,52 @@
+---
+type Datasource = {
+  name: string;
+  category: string;
+  color: string;
+  desc: string;
+};
+
+const datasources: Datasource[] = [
+  { name: 'Prometheus', category: 'Metrics', color: 'amber', desc: 'PromQL metrics from any Prometheus-compatible endpoint.' },
+  { name: 'VictoriaMetrics', category: 'Metrics', color: 'amber', desc: 'High-performance Prometheus-compatible metrics storage.' },
+  { name: 'Loki', category: 'Logs', color: 'sky', desc: 'LogQL log exploration with label-based filtering.' },
+  { name: 'VictoriaLogs', category: 'Logs', color: 'sky', desc: 'Cost-efficient log storage with LogQL support.' },
+  { name: 'Elasticsearch', category: 'Logs', color: 'sky', desc: 'Full-text log and event search with index patterns.' },
+  { name: 'ClickHouse', category: 'Analytics', color: 'violet', desc: 'SQL analytics and log queries on ClickHouse databases.' },
+  { name: 'CloudWatch', category: 'Cloud', color: 'orange', desc: 'AWS CloudWatch metrics and logs via IAM credentials.' },
+  { name: 'Tempo', category: 'Traces', color: 'emerald', desc: 'Distributed trace search and span timeline views.' },
+  { name: 'VictoriaTraces', category: 'Traces', color: 'emerald', desc: 'OpenTelemetry-compatible trace storage and search.' },
+  { name: 'VMAlert', category: 'Alerting', color: 'rose', desc: 'View firing VMAlert rules and alert history.' },
+  { name: 'AlertManager', category: 'Alerting', color: 'rose', desc: 'Manage silences, receivers, and alert routing.' },
+];
+
+const badgeColors: Record<string, string> = {
+  amber: 'bg-amber-500/15 text-amber-300',
+  sky: 'bg-sky-500/15 text-sky-300',
+  violet: 'bg-violet-500/15 text-violet-300',
+  orange: 'bg-orange-500/15 text-orange-300',
+  emerald: 'bg-emerald-500/15 text-emerald-300',
+  rose: 'bg-rose-500/15 text-rose-300',
+};
+---
+
+<section id="datasources" class="section-card" aria-labelledby="datasources-title">
+  <h2 id="datasources-title" class="m-0 text-2xl font-semibold text-slate-50 md:text-3xl">11 datasource integrations out of the box</h2>
+  <p class="mt-4 max-w-3xl text-slate-300">
+    Connect Ace to your existing observability infrastructure without plugins or marketplace purchases.
+  </p>
+
+  <div class="mt-6 grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-4">
+    {
+      datasources.map((ds) => (
+        <article class="rounded-xl border border-slate-700/70 bg-slate-800/65 p-4 shadow-[0_8px_24px_rgba(2,8,23,0.28)]">
+          <span class={`inline-block rounded-md px-2 py-0.5 text-xs font-semibold mb-3 ${badgeColors[ds.color]}`}>
+            {ds.category}
+          </span>
+          <h3 class="m-0 text-sm font-semibold text-slate-50 mb-1">{ds.name}</h3>
+          <p class="m-0 text-xs text-slate-400">{ds.desc}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>

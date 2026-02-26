@@ -20,10 +20,10 @@ export const screenshotGallery: LandingScreenshot[] = [
     id: 'datasource-config',
     title: 'Datasource configuration',
     description:
-      'Configure Prometheus, Loki, Tempo, and VictoriaMetrics datasources with auth and health checks.',
+      'Configure all 11 datasources — Prometheus, Loki, Tempo, VictoriaMetrics, VictoriaLogs, VictoriaTraces, VMAlert, AlertManager, Elasticsearch, ClickHouse, and CloudWatch — with auth and health checks.',
     webp: '/landing-datasources.webp',
     jpg: '/landing-datasources.jpg',
-    alt: 'Ace datasource settings screenshot with Prometheus, Loki, Tempo, and VictoriaMetrics connection options',
+    alt: 'Ace datasource settings screenshot with Prometheus, Loki, Tempo, VictoriaMetrics, VictoriaLogs, VictoriaTraces, VMAlert, AlertManager, Elasticsearch, ClickHouse, and CloudWatch connection options',
   },
   {
     id: 'query-editor',
@@ -75,12 +75,14 @@ const softwareApplicationStructuredData = {
     availability: 'https://schema.org/InStock',
   },
   description:
-    'Open-source monitoring dashboard with multi-datasource support for Prometheus, Loki, Tempo, and VictoriaMetrics.',
+    'Open-source monitoring dashboard with multi-datasource support for Prometheus, Loki, Tempo, VictoriaMetrics, VictoriaLogs, VictoriaTraces, VMAlert, AlertManager, Elasticsearch, ClickHouse, and CloudWatch.',
   featureList: [
     'Metrics, logs, and traces in one interface',
     'Role-based access control',
     'Dashboard import and export',
     'Self-hosted deployment',
+    '11 datasource integrations including VictoriaMetrics, ClickHouse, and CloudWatch',
+    'Alerting via VMAlert and AlertManager',
   ],
 };
 
@@ -93,7 +95,15 @@ const faqStructuredData = {
       name: 'Which datasources does Ace support?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Ace supports Prometheus-compatible metrics, Loki logs, Tempo traces, and VictoriaMetrics backends for self-hosted monitoring workflows.',
+        text: 'Ace supports 11 datasources: Prometheus, Loki, Tempo, VictoriaMetrics, VictoriaLogs, VictoriaTraces, VMAlert, AlertManager, Elasticsearch, ClickHouse, and CloudWatch for self-hosted monitoring workflows.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does Ace support ClickHouse and Elasticsearch?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Ace supports ClickHouse for SQL-based analytics queries and Elasticsearch for log and text search, alongside Prometheus, Loki, Tempo, VictoriaMetrics, VictoriaLogs, VictoriaTraces, VMAlert, AlertManager, and CloudWatch.',
       },
     },
     {
@@ -115,9 +125,9 @@ const featureListStructuredData = {
     {
       '@type': 'ListItem',
       position: 1,
-      name: 'Multi-datasource observability',
+      name: 'Multi-datasource observability with 11 integrations',
       description:
-        'Query Prometheus metrics, Loki logs, Tempo traces, and VictoriaMetrics data from a single monitoring dashboard.',
+        'Query Prometheus, Loki, Tempo, VictoriaMetrics, VictoriaLogs, VictoriaTraces, VMAlert, AlertManager, Elasticsearch, ClickHouse, and CloudWatch from a single monitoring dashboard.',
     },
     {
       '@type': 'ListItem',
