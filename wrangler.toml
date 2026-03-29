@@ -1,3 +1,19 @@
 name = "ace-website"
 compatibility_date = "2024-01-01"
 pages_build_output_dir = "dist"
+
+[[routes]]
+pattern = "aceobs.com/*"
+custom_domain = true
+
+[[routes]]
+pattern = "www.aceobs.com/*"
+custom_domain = true
+
+[[routes]]
+pattern = "aceobservability.com/*"
+custom_domain = true
+
+[[routes]]
+pattern = "www.aceobservability.com/*"
+custom_domain = true
