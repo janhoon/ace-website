@@ -1,7 +1,7 @@
 ---
 const stats = [
   {
-    value: '8+',
+    value: '11',
     label: 'Datasources',
     sparkline: 'M0,8 L3,6 L6,7 L9,4 L12,5 L15,3 L18,4 L21,2 L24,3',
   },
@@ -11,9 +11,10 @@ const stats = [
     sparkline: 'M0,4 L4,4 L8,4 L12,4 L16,4 L20,4 L24,4',
   },
   {
-    value: '16K+',
+    value: null,
     label: 'GitHub Stars',
     sparkline: 'M0,10 L4,9 L8,7 L12,6 L16,4 L20,3 L24,2',
+    dynamic: true,
   },
   {
     value: 'Zero',
@@ -28,7 +29,11 @@ const stats = [
     stats.map((stat) => (
       <div class="flex flex-col items-center text-center md:px-6">
         <div class="flex items-end gap-2">
-          <span class="font-mono text-4xl font-bold text-white md:text-5xl">{stat.value}</span>
+          {stat.dynamic ? (
+            <span id="gh-stars" class="font-mono text-4xl font-bold text-white md:text-5xl">&mdash;</span>
+          ) : (
+            <span class="font-mono text-4xl font-bold text-white md:text-5xl">{stat.value}</span>
+          )}
           <svg class="mb-2 h-3 w-6 text-emerald-500/40" viewBox="0 0 24 12" fill="none" aria-hidden="true">
             <path d={stat.sparkline} stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
@@ -38,3 +43,16 @@ const stats = [
     ))
   }
 </div>
+
+<script>
+  fetch('https://api.github.com/repos/aceobservability/ace')
+    .then(r => r.json())
+    .then(data => {
+      const el = document.getElementById('gh-stars');
+      if (el && typeof data.stargazers_count === 'number') {
+        const count = data.stargazers_count;
+        el.textContent = count >= 1000 ? `${(count / 1000).toFixed(1).replace(/\.0$/, '')}K` : String(count);
+      }
+    })
+    .catch(() => {});
+</script>

@@ -65,9 +65,9 @@ const softwareApplicationStructuredData = {
   name: 'Ace Observability',
   applicationCategory: 'DeveloperApplication',
   operatingSystem: 'Linux, macOS, Windows',
-  softwareHelp: 'https://github.com/janhoon/ace#readme',
-  url: 'https://github.com/janhoon/ace',
-  downloadUrl: 'https://github.com/janhoon/ace',
+  softwareHelp: 'https://github.com/aceobservability/ace#readme',
+  url: 'https://github.com/aceobservability/ace',
+  downloadUrl: 'https://github.com/aceobservability/ace',
   offers: {
     '@type': 'Offer',
     price: '0',
@@ -280,8 +280,8 @@ const organizationStructuredData = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Ace Observability',
-  url: 'https://github.com/janhoon/ace',
-  sameAs: ['https://github.com/janhoon/ace'],
+  url: 'https://github.com/aceobservability/ace',
+  sameAs: ['https://github.com/aceobservability/ace'],
 };
 
 const siteNavigationStructuredData = {

@@ -75,39 +75,216 @@ const featureCards: FeatureCard[] = [
     <p class="mt-4 max-w-3xl text-slate-600">
       Dashboards, querying, alerting, and access control in one open-source product — no paid-only features.
     </p>
+  </div>
 
-    <ul class="mt-8 grid list-none gap-4 p-0 md:grid-cols-2 xl:grid-cols-3" aria-label="Ace platform feature list">
-      {
-        featureCards.map((feature) => (
-          <li class="m-0">
-            <article aria-labelledby={feature.id} class="grid h-full gap-0 overflow-hidden rounded-xl border border-slate-200 bg-white">
-              {feature.screenshot && (
-                <picture class="border-b border-slate-200">
-                  <source srcset={feature.screenshot.webp} type="image/webp" />
-                  <img
-                    class="block h-auto w-full"
-                    src={feature.screenshot.jpg}
-                    alt={feature.screenshot.alt}
-                    width="1280"
-                    height="720"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </picture>
-              )}
-              <div class="grid gap-2 p-4">
+  <!-- Carousel — full section width so peeks can bleed into padding -->
+  <div class="mt-8 relative" id="feature-carousel">
+    <div class="flex items-center justify-center gap-4 px-4 md:px-8">
+      <!-- Prev peek -->
+      <button
+        id="carousel-prev"
+        type="button"
+        class="hidden md:block flex-shrink-0 w-[12%] cursor-pointer rounded-xl border-0 bg-transparent p-0 opacity-40 transition-opacity duration-300 hover:opacity-70"
+        aria-label="Previous feature"
+      >
+        <img id="peek-prev" class="block h-auto w-full rounded-xl" src="" alt="" loading="lazy" decoding="async" />
+      </button>
+
+      <!-- Active slide -->
+      <div class="flex-1 min-w-0 max-w-5xl">
+        <div class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg">
+          <div class="relative">
+            <button
+              id="carousel-active-btn"
+              type="button"
+              class="block w-full cursor-zoom-in border-0 bg-transparent p-0"
+              aria-label="Enlarge screenshot"
+            >
+              <picture>
+                <source id="active-webp" srcset="" type="image/webp" />
+                <img
+                  id="active-img"
+                  class="block h-auto w-full"
+                  src=""
+                  alt=""
+                  width="1280"
+                  height="720"
+                  decoding="async"
+                />
+              </picture>
+            </button>
+
+            <!-- Overlay arrows -->
+            <button
+              id="carousel-arrow-prev"
+              type="button"
+              class="absolute left-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-slate-900/70 text-white backdrop-blur-sm transition hover:bg-slate-900/90"
+              aria-label="Previous feature"
+            >
+              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+            </button>
+            <button
+              id="carousel-arrow-next"
+              type="button"
+              class="absolute right-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-slate-900/70 text-white backdrop-blur-sm transition hover:bg-slate-900/90"
+              aria-label="Next feature"
+            >
+              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
+            </button>
+          </div>
+
+          <!-- Caption bar -->
+          <div class="border-t border-slate-200 px-6 py-4">
+            {featureCards.map((feature, i) => (
+              <div class:list={["carousel-caption", i === 0 ? "" : "hidden"]} data-caption={i}>
                 <div class="flex items-center gap-2">
                   <svg viewBox="0 0 24 24" role="img" aria-label={feature.iconLabel} class="h-5 w-5 stroke-emerald-600" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
                     {feature.paths.map((path) => <path d={path}></path>)}
                   </svg>
-                  <h3 id={feature.id} class="m-0 text-sm font-semibold leading-6">{feature.title}</h3>
+                  <h3 class="m-0 text-base font-semibold text-slate-900">{feature.title}</h3>
                 </div>
-                <p class="m-0 text-sm text-slate-500">{feature.description}</p>
+                <p class="m-0 mt-1 text-sm text-slate-500">{feature.description}</p>
               </div>
-            </article>
-          </li>
-        ))
-      }
-    </ul>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Next peek -->
+      <button
+        id="carousel-next"
+        type="button"
+        class="hidden md:block flex-shrink-0 w-[12%] cursor-pointer rounded-xl border-0 bg-transparent p-0 opacity-40 transition-opacity duration-300 hover:opacity-70"
+        aria-label="Next feature"
+      >
+        <img id="peek-next" class="block h-auto w-full rounded-xl" src="" alt="" loading="lazy" decoding="async" />
+      </button>
+    </div>
+
+
+    <!-- Dot indicators -->
+    <div class="mt-4 flex items-center justify-center gap-2" id="carousel-dots" aria-label="Feature slides">
+      {featureCards.map((feature, i) => (
+        <button
+          type="button"
+          class:list={[
+            "h-2 rounded-full transition-all duration-300",
+            i === 0 ? "w-6 bg-emerald-600" : "w-2 bg-slate-300 hover:bg-slate-400",
+          ]}
+          data-dot={i}
+          aria-label={`Go to ${feature.title}`}
+        />
+      ))}
+    </div>
   </div>
 </section>
+
+<!-- Lightbox modal -->
+<div
+  id="lightbox"
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Enlarged screenshot"
+>
+  <button
+    id="lightbox-close"
+    type="button"
+    class="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+    aria-label="Close lightbox"
+  >
+    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+  </button>
+  <picture id="lightbox-picture" class="max-h-[90vh] max-w-[90vw]">
+    <source id="lightbox-source" srcset="" type="image/webp" />
+    <img
+      id="lightbox-img"
+      class="max-h-[90vh] max-w-[90vw] rounded-lg object-contain shadow-2xl"
+      src=""
+      alt=""
+    />
+  </picture>
+</div>
+
+<script define:vars={{ features: featureCards.map(f => ({ jpg: f.screenshot?.jpg, webp: f.screenshot?.webp, alt: f.screenshot?.alt, title: f.title })) }}>
+  const slides = features;
+  const total = slides.length;
+  let current = 0;
+  let autoTimer;
+
+  const activeImg = document.getElementById('active-img');
+  const activeWebp = document.getElementById('active-webp');
+  const activeBtn = document.getElementById('carousel-active-btn');
+  const peekPrev = document.getElementById('peek-prev');
+  const peekNext = document.getElementById('peek-next');
+  const captions = document.querySelectorAll('[data-caption]');
+  const dots = document.querySelectorAll('[data-dot]');
+
+  function wrap(i) { return ((i % total) + total) % total; }
+
+  function goTo(index) {
+    current = wrap(index);
+    const prev = wrap(current - 1);
+    const next = wrap(current + 1);
+
+    activeImg.src = slides[current].jpg;
+    activeWebp.srcset = slides[current].webp;
+    activeImg.alt = slides[current].alt;
+    activeBtn.setAttribute('aria-label', 'Enlarge screenshot: ' + slides[current].title);
+
+    peekPrev.src = slides[prev].jpg;
+    peekPrev.alt = slides[prev].title;
+    peekNext.src = slides[next].jpg;
+    peekNext.alt = slides[next].title;
+
+    captions.forEach(function(c, i) { c.classList.toggle('hidden', i !== current); });
+    dots.forEach(function(d, i) {
+      if (i === current) {
+        d.className = 'h-2 w-6 rounded-full bg-emerald-600 transition-all duration-300';
+      } else {
+        d.className = 'h-2 w-2 rounded-full bg-slate-300 hover:bg-slate-400 transition-all duration-300';
+      }
+    });
+  }
+
+  function resetAuto() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(function() { goTo(current + 1); }, 6000);
+  }
+
+  // Init
+  goTo(0);
+
+  // Navigation — peek images, overlay arrows
+  document.getElementById('carousel-prev').addEventListener('click', function() { goTo(current - 1); resetAuto(); });
+  document.getElementById('carousel-next').addEventListener('click', function() { goTo(current + 1); resetAuto(); });
+  document.getElementById('carousel-arrow-prev').addEventListener('click', function() { goTo(current - 1); resetAuto(); });
+  document.getElementById('carousel-arrow-next').addEventListener('click', function() { goTo(current + 1); resetAuto(); });
+  dots.forEach(function(dot, i) { dot.addEventListener('click', function() { goTo(i); resetAuto(); }); });
+  resetAuto();
+
+  // Lightbox
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightbox-img');
+  var lightboxSource = document.getElementById('lightbox-source');
+
+  function openLightbox() {
+    lightboxSource.srcset = slides[current].webp;
+    lightboxImg.src = slides[current].jpg;
+    lightboxImg.alt = slides[current].alt;
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  activeBtn.addEventListener('click', openLightbox);
+  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function(e) { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
+</script>
