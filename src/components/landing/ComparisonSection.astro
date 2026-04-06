@@ -14,23 +14,23 @@
         <thead>
           <tr class="bg-[var(--color-surface-bright)] font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.06em] text-[var(--color-text-muted)]">
             <th scope="col" class="px-4 py-3">Feature</th>
-            <th scope="col" class="px-4 py-3">Ace</th>
+            <th scope="col" class="px-4 py-3 bg-[rgba(79,175,120,0.08)]">Ace</th>
             <th scope="col" class="px-4 py-3">Grafana</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="border-b border-[var(--color-stroke-subtle)] align-top bg-[var(--color-primary-muted)]">
+          <tr class="border-b border-[var(--color-stroke-subtle)] align-top">
             <th scope="row" class="w-[28%] px-4 py-3 font-semibold text-[var(--color-text-primary)]">Deployment model</th>
-            <td class="px-4 py-3 text-[var(--color-text-secondary)]">
+            <td class="px-4 py-3 text-[var(--color-text-secondary)] bg-[rgba(79,175,120,0.08)]">
               <span class="inline-flex items-center gap-1.5"><svg class="h-4 w-4 shrink-0 text-[var(--color-secondary)]" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Self-hosted first with straightforward local setup</span>
             </td>
             <td class="px-4 py-3 text-[var(--color-text-muted)]">
               <span class="inline-flex items-center gap-1.5"><svg class="h-4 w-4 shrink-0 text-[var(--color-text-muted)]" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg> Cloud and self-hosted options with a wider set of products and plans</span>
             </td>
           </tr>
-          <tr class="border-b border-[var(--color-stroke-subtle)] align-top bg-[var(--color-primary-muted)]">
+          <tr class="border-b border-[var(--color-stroke-subtle)] align-top">
             <th scope="row" class="px-4 py-3 font-semibold text-[var(--color-text-primary)]">Source model</th>
-            <td class="px-4 py-3 text-[var(--color-text-secondary)]">
+            <td class="px-4 py-3 text-[var(--color-text-secondary)] bg-[rgba(79,175,120,0.08)]">
               <span class="inline-flex items-center gap-1.5"><svg class="h-4 w-4 shrink-0 text-[var(--color-secondary)]" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Truly open-source codebase with no paid-only features</span>
             </td>
             <td class="px-4 py-3 text-[var(--color-text-muted)]">
@@ -39,49 +39,58 @@
           </tr>
           <tr class="border-b border-[var(--color-stroke-subtle)] align-top">
             <th scope="row" class="px-4 py-3 font-semibold text-[var(--color-text-primary)]">Prometheus metrics</th>
-            <td class="px-4 py-3 text-[var(--color-text-muted)]">Native support for Prometheus-compatible metrics queries</td>
+            <td class="px-4 py-3 text-[var(--color-text-muted)] bg-[rgba(79,175,120,0.08)]">Native support for Prometheus-compatible metrics queries</td>
             <td class="px-4 py-3 text-[var(--color-text-muted)]">Native support for Prometheus-compatible metrics queries</td>
           </tr>
           <tr class="border-b border-[var(--color-stroke-subtle)] align-top">
             <th scope="row" class="px-4 py-3 font-semibold text-[var(--color-text-primary)]">Loki logs</th>
-            <td class="px-4 py-3 text-[var(--color-text-muted)]">Integrated Explore flow for logs and related telemetry</td>
+            <td class="px-4 py-3 text-[var(--color-text-muted)] bg-[rgba(79,175,120,0.08)]">Integrated Explore flow for logs and related telemetry</td>
             <td class="px-4 py-3 text-[var(--color-text-muted)]">Integrated Explore flow for logs and related telemetry</td>
           </tr>
           <tr class="border-b border-[var(--color-stroke-subtle)] align-top">
             <th scope="row" class="px-4 py-3 font-semibold text-[var(--color-text-primary)]">Tempo traces</th>
-            <td class="px-4 py-3 text-[var(--color-text-muted)]">Trace search and timeline views in the same interface</td>
+            <td class="px-4 py-3 text-[var(--color-text-muted)] bg-[rgba(79,175,120,0.08)]">Trace search and timeline views in the same interface</td>
             <td class="px-4 py-3 text-[var(--color-text-muted)]">Trace support through Tempo integrations and trace views</td>
           </tr>
-          <tr class="border-b border-[var(--color-stroke-subtle)] align-top bg-[var(--color-primary-muted)]">
+          <tr class="border-b border-[var(--color-stroke-subtle)] align-top">
+            <th scope="row" class="px-4 py-3 font-semibold text-[var(--color-text-primary)]">AI integration</th>
+            <td class="px-4 py-3 text-[var(--color-text-secondary)] bg-[rgba(79,175,120,0.08)]">
+              <span class="inline-flex items-center gap-1.5"><svg class="h-4 w-4 shrink-0 text-[var(--color-secondary)]" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Native AI copilot for query assist and chat-to-dashboard generation</span>
+            </td>
+            <td class="px-4 py-3 text-[var(--color-text-muted)]">
+              <span class="inline-flex items-center gap-1.5"><svg class="h-5 w-5 shrink-0 text-[var(--color-error)]" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg> No native AI integration</span>
+            </td>
+          </tr>
+          <tr class="border-b border-[var(--color-stroke-subtle)] align-top">
             <th scope="row" class="px-4 py-3 font-semibold text-[var(--color-text-primary)]">Dashboard migration</th>
-            <td class="px-4 py-3 text-[var(--color-text-secondary)]">
+            <td class="px-4 py-3 text-[var(--color-text-secondary)] bg-[rgba(79,175,120,0.08)]">
               <span class="inline-flex items-center gap-1.5"><svg class="h-4 w-4 shrink-0 text-[var(--color-secondary)]" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Built-in Grafana conversion flow and YAML import path</span>
             </td>
             <td class="px-4 py-3 text-[var(--color-text-muted)]">
               <span class="inline-flex items-center gap-1.5"><svg class="h-4 w-4 shrink-0 text-[var(--color-text-muted)]" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg> Native format for existing Grafana JSON dashboards</span>
             </td>
           </tr>
-          <tr class="border-b border-[var(--color-stroke-subtle)] align-top bg-[var(--color-primary-muted)]">
+          <tr class="border-b border-[var(--color-stroke-subtle)] align-top">
             <th scope="row" class="px-4 py-3 font-semibold text-[var(--color-text-primary)]">Configuration as code</th>
-            <td class="px-4 py-3 text-[var(--color-text-secondary)]">
+            <td class="px-4 py-3 text-[var(--color-text-secondary)] bg-[rgba(79,175,120,0.08)]">
               <span class="inline-flex items-center gap-1.5"><svg class="h-4 w-4 shrink-0 text-[var(--color-secondary)]" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> YAML export and import for easy review and repeatable setup</span>
             </td>
             <td class="px-4 py-3 text-[var(--color-text-muted)]">
               <span class="inline-flex items-center gap-1.5"><svg class="h-4 w-4 shrink-0 text-[var(--color-text-muted)]" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg> JSON export commonly used for dashboard portability</span>
             </td>
           </tr>
-          <tr class="border-b border-[var(--color-stroke-subtle)] align-top bg-[var(--color-primary-muted)]">
+          <tr class="border-b border-[var(--color-stroke-subtle)] align-top">
             <th scope="row" class="px-4 py-3 font-semibold text-[var(--color-text-primary)]">Organization access control</th>
-            <td class="px-4 py-3 text-[var(--color-text-secondary)]">
+            <td class="px-4 py-3 text-[var(--color-text-secondary)] bg-[rgba(79,175,120,0.08)]">
               <span class="inline-flex items-center gap-1.5"><svg class="h-4 w-4 shrink-0 text-[var(--color-secondary)]" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Admin, editor, and viewer roles are simple to apply</span>
             </td>
             <td class="px-4 py-3 text-[var(--color-text-muted)]">
               <span class="inline-flex items-center gap-1.5"><svg class="h-4 w-4 shrink-0 text-[var(--color-text-muted)]" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg> Role behavior varies by deployment and edition</span>
             </td>
           </tr>
-          <tr class="align-top bg-[var(--color-primary-muted)]">
+          <tr class="align-top">
             <th scope="row" class="px-4 py-3 font-semibold text-[var(--color-text-primary)]">SSO administration</th>
-            <td class="px-4 py-3 text-[var(--color-text-secondary)]">
+            <td class="px-4 py-3 text-[var(--color-text-secondary)] bg-[rgba(79,175,120,0.08)]">
               <span class="inline-flex items-center gap-1.5"><svg class="h-4 w-4 shrink-0 text-[var(--color-secondary)]" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg> Provider setup available in organization settings</span>
             </td>
             <td class="px-4 py-3 text-[var(--color-text-muted)]">
