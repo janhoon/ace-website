@@ -2,21 +2,22 @@
 const testimonials = [
   {
     quote:
-      'We migrated from Grafana Cloud in a weekend. Having metrics, logs, and traces in one self-hosted tool cut our debugging time in half.',
-    name: 'Marta Kowalski',
-    role: 'SRE Lead, Kubert Systems',
+      'We built Ace because we were tired of fighting Grafana\'s plugin ecosystem just to get basic observability working. One binary, eleven datasources, zero feature gates. That\'s the product we wanted to use ourselves.',
+    name: 'Jan Hoon',
+    role: 'Opensource Platform Engineering / Ace Maintainer',
   },
   {
     quote:
-      'The Grafana dashboard import actually worked. Dropped in our JSON files and everything rendered correctly — no manual re-creation.',
-    name: 'Daniel Osei',
-    role: 'Platform Engineer, Meridian Health',
+      'Shipping Ace with enterprise auth baked in from day one was a deliberate choice. Every team deserves SSO, RBAC, and audit logging without negotiating an enterprise contract. Open source should mean open source.',
+    name: 'Dean van Zyl',
+    role: 'Opensource Platform Engineering / Ace Maintainer',
   },
   {
     quote:
-      'No feature gates. No surprise invoices. Our team has full access to alerting, SSO, and RBAC without negotiating an enterprise contract.',
-    name: 'Yuki Tanaka',
-    role: 'DevOps Manager, Flyweight Labs',
+      'Tell us about your Ace journey to be featured here.',
+    name: 'You?',
+    role: 'Future Ace User / Platform Engineering Enthusiast',
+    placeholder: true,
   },
 ];
 ---
@@ -25,14 +26,20 @@ const testimonials = [
   <div class="section-inner">
     <p class="m-0 font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.06em] text-[var(--color-primary)]">Testimonials</p>
     <h2 id="testimonials-title" class="mt-2 text-2xl font-bold tracking-[-0.03em] md:text-3xl">What engineers are saying</h2>
-    <p class="mt-4 max-w-3xl text-[var(--color-text-secondary)]">Teams running Ace in production share their experience.</p>
+    <p class="mt-4 max-w-3xl text-[var(--color-text-secondary)]">From the people building and using Ace.</p>
 
     <ul class="mt-8 grid list-none gap-6 p-0 md:grid-cols-3" aria-label="User testimonials">
       {
         testimonials.map((t) => (
           <li class="m-0">
-            <blockquote class="grid h-full gap-4 rounded-[var(--radius-lg)] border border-[var(--color-stroke-subtle)] border-l-[var(--color-primary)] border-l-2 bg-[var(--color-surface)] p-6">
-              <p class="m-0 text-sm leading-relaxed text-[var(--color-text-secondary)]">&ldquo;{t.quote}&rdquo;</p>
+            <blockquote class:list={[
+              "grid h-full gap-4 rounded-[var(--radius-lg)] border border-[var(--color-stroke-subtle)] border-l-2 bg-[var(--color-surface)] p-6",
+              t.placeholder ? "border-l-[var(--color-stroke-strong)] border-dashed" : "border-l-[var(--color-primary)]",
+            ]}>
+              <p class:list={[
+                "m-0 text-sm leading-relaxed",
+                t.placeholder ? "text-[var(--color-text-muted)] italic" : "text-[var(--color-text-secondary)]",
+              ]}>{t.placeholder ? t.quote : <Fragment>&ldquo;{t.quote}&rdquo;</Fragment>}</p>
               <footer class="mt-auto">
                 <cite class="not-italic">
                   <span class="block text-sm font-semibold text-[var(--color-text-primary)]">{t.name}</span>
