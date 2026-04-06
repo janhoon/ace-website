@@ -1,12 +1,11 @@
-interface Env {
-  TURNSTILE_SECRET_KEY: string;
-  DB: D1Database;
-}
+import type { APIRoute } from 'astro';
 
-export const onRequestPost: PagesFunction<Env> = async (context) => {
-  const { request, env } = context;
+export const prerender = false;
 
+export const POST: APIRoute = async ({ request, locals }) => {
   try {
+    const runtime = (locals as any).runtime;
+    const env = runtime?.env || {};
     const formData = await request.formData();
 
     // Honeypot check
@@ -30,12 +29,13 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     }
 
     // Validate Turnstile
-    if (env.TURNSTILE_SECRET_KEY) {
+    const turnstileSecret = env.TURNSTILE_SECRET_KEY;
+    if (turnstileSecret) {
       const turnstileResult = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({
-          secret: env.TURNSTILE_SECRET_KEY,
+          secret: turnstileSecret,
           response: turnstileToken || '',
           remoteip: request.headers.get('CF-Connecting-IP') || '',
         }),
@@ -50,12 +50,13 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
 
     // Store in D1
-    if (env.DB) {
-      await env.DB.prepare(
+    const db = env.DB;
+    if (db) {
+      await db.prepare(
         'INSERT INTO leads (name, email, subject, message, ip, created_at) VALUES (?, ?, ?, ?, ?, ?)'
       ).bind(name, email, subject, message, ip, new Date().toISOString()).run();
     } else {
-      console.log('LEAD:', JSON.stringify({ name, email, subject, message, ip, timestamp: new Date().toISOString() }));
+      console.log('LEAD (no DB):', JSON.stringify({ name, email, subject, message, ip, timestamp: new Date().toISOString() }));
     }
 
     return jsonResponse({ success: true });
